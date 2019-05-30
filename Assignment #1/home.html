@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="footer, address, phone, icons" />
+
+
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+/*------------ Structure ----------------*/
+#theNumber {
+  font-size: 150px;
+  line-height: 0px;
+  text-align: center;
+  color: red;
+}
+
+html, body { margin: 0; padding: 0 }
+.wrapper 
+{
+  display: grid;
+  grid-template-areas:
+    "header header header header header"
+    "empty_left sidebar_1 content sidebar_2 empty_right"
+    "footer footer footer footer footer";
+  grid-template-rows: 0fr 1fr 0fr;
+  grid-template-columns: 1fr 100px 1000px 100px 1fr;
+  min-height: 100vh;
+}
+.header 
+{
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #292c2f;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+:root 
+{
+  --header-height: calc(1rem * 1.5 + 1rem * 2);
+}
+
+.sidebar-1 { grid-area: sidebar_1; }
+.sidebar-2 { grid-area: sidebar_2; }
+.sidebar-1,.sidebar-2 
+{
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.content 
+{
+  grid-area: content;
+  background-color: white;
+}
+.footer 
+{
+  grid-area: footer;
+  position: sticky;
+  background-color: #292c2f;
+  text-align: center;
+  font-size: .8rem;
+  line-height: 1.5;
+}
+
+:root { --footer-height: calc(.8rem * 1.5 + .5rem * 2); }
+
+.sticky-spacer {flex-grow: 1;}
+.sticky-content 
+{
+  position: sticky;
+  bottom: var(--footer-height);
+  min-height: calc(100vh - var(--footer-height));
+  box-sizing: border-box;
+  --padding: 10px;
+  padding:
+  calc(var(--header-height) + var(--padding))
+  var(--padding)
+  var(--padding);
+  margin-top: calc(0px - var(--header-height));
+}
+
+.mySlides {display:none;}
+.frame 
+{
+  border : 5px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left : 10px;
+  margin-right : 10px;
+}
+.bottom
+{
+  position: absolute;
+  left: 30%;
+  top: 75%;
+}
+
+/*------------ Navigation ----------------*/
+nav 
+{
+  height: 50px;
+  font-size: 20px;
+}
+li 
+{
+  float: left;
+  width: 33%;
+  border: none #ccc;
+  text-align: center;
+}
+ul { list-style: none; }
+
+h1 
+{
+  text-align: center;
+  font-size: 50px;
+}
+form 
+{
+  font-size: 30px;
+  text-align: center;
+}
+
+</style>
+
+
+
+<body>
+
+<div class="wrapper">
+<div class="header">
+  <ul>
+    <li><a href="home.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="donate.html">DONATE</a></li>
+  </ul>
+
+</div>
+
+
+
+<div class="sidebar-1">
+  <div class="sticky-spacer"></div>
+  <div class="sticky-content"></div>
+</div>
+
+<!-- You can add more stuff here-->
+<div class="content"> 
+  <div class="sticky-content">
+
+    <body onload = 'count()'>
+    <div class = "counter">
+      <p id='theNumber'>0
+        <p style = "text-align: center; font-size: 10px;">
+          Plastic pollution per year
+        </p>
+      </p>
+    </div>
+        <script>
+            total = 0.0;
+                speed = 10000.0;
+                cost = 0;
+                function count(){
+                    setInterval(function() {
+                        total = total + speed;
+                         document.getElementById('theNumber').innerHTML=addCommas(preciseRound(total,0));
+                     document.getElementById('numberSpeed').innerHTML=addCommas(preciseRound((speed*10),0)) + ' number per second';
+                        if (cost > total){
+                            document.getElementById('goFasterButton').setAttribute('disabled','disabled');
+                        }
+                        else if (cost <= total){
+                            document.getElementById('goFasterButton').removeAttribute('disabled');
+                        }
+                    }, 100);
+                }
+                function goFaster(){
+                    if (cost <= total) {
+                        total = total - cost;
+                        cost = cost * 2.32;
+                        speed = speed * 20;
+                        document.getElementById('numberCost').innerHTML=addCommas(preciseRound(cost,0));
+                    }
+                }
+                function preciseRound(n,d){
+                    return Math.round(n*Math.pow(10,d)) / Math.pow(10,d);
+                }
+                function addCommas(nStr)
+                {
+                    nStr += '';
+                    x = nStr.split('.');
+                    x1 = x[0];
+                    x2 = x.length > 1 ? '.' + x[1] : '';
+                    var rgx = /(\d+)(\d{3})/;
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    }
+                    return x1 + x2;
+                }
+        </script> 
+        </p>
+           <img src = "https://main-designyoutrust.netdna-ssl.com/wp-content/uploads/2017/05/1-62.jpg?iv=72" style = " display:block;">
+      <!-- <video width = "100%" height="300" controls>
+        <source src="https://vp.nyt.com/video/hls/2019/03/18/80150_1_18vid-whale_wg/master.m3u8" type="video/mp4">
+      </video> -->
+  <p>
+    <img src = "https://www.mysuncoast.com/resizer/oNhvFSFMCeEa0nh43o34gS1lZNI=/1200x600/arc-anglerfish-arc2-prod-raycom.s3.amazonaws.com/public/TX5O4LOU4VBOPKOYROBCZ4O2MY.JPG" style = "width: 50%; height: 300px;margin-right:15px; margin-bottom: 15px; float: left;" >
+    <h3> 88 Pounds of Plastic Found In Whale</h3>
+    On the Davao Gulf in the Phillines, a whale spent his last moments vomiting blood. When he was bought back to the lab for a necropsy, nearly ninety pounds of plastic were pulled out of its belly! 
+  </p>
+  </div>
+</div>
+<!-- Ends Content-->
+
+
+
+
+
+<div class="sidebar-2">
+  <div class="sticky-spacer"></div>
+  <div class="sticky-content">
+
+  </div>
+</div>
+
+<div class="footer">
+    <footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Save The <span>Whale</span></h3>
+        <p class="footer-company-name">Hunter College Boot Camp &copy; 2019</p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>68st Hunter College</span> New York, NY</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+1 123 456-7890</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@company.com">Hunter@hunter.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the company</span>
+          Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+</body>
+</html>
