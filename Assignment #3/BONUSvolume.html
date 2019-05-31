@@ -1,10 +1,10 @@
 <!doctype>
 <html>
 	<script>
-		function solve() {
+		function solve() { //calculates volume
 			let x = document.getElementById("radius").value;
-			x = Math.pow(x,3);
-			x = x * (4/3) * Math.PI; 
+			x = Math.pow(x,3); // r to the cubed
+			x = x * (4/3) * Math.PI; //multplication between pi and 4 thirds
 			document.getElementById("vol").innerHTML="Volume = "+ x;
 		}
 	</script>
