@@ -1,0 +1,45 @@
+.block {
+			display: block;
+			width: 100%;
+			border: none;
+			background-color:red;
+			color: black;
+			padding: 14px 28px;
+			font-size: 16px;
+			cursor: pointer;
+			text-align: center;
+}
+
+.ui {
+	color: white;
+}
+
+.globe {
+	max-width: 25%; /*for resizing proportionally*/
+    height:auto; /*for resizing proportionally*/
+}
+
+.video {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+	background-color: black;
+}
+
+nav {
+	height: 50px;
+	font-size: 20px;
+}
+
+li {
+	float: left;
+	width: 33%;
+	border: none #ccc;
+	text-align: center;
+}
+ ul {
+	list-style: none;
+}

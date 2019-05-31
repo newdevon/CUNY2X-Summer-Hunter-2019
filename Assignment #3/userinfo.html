@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+	<link rel="stylesheet" type="text/css" href="nav.css">
+
+	<script>
+		function checkpassword() {
+			const x = document.getElementById("pw").value;
+			if(x!=="12345678") {
+				window.alert("Wrong Password, Try again");
+			}
+			if(x==="12345678") {
+				document.getElementById("sucess").innerHTML="Login Sucessful!"
+				//window.alert("Login Sucessful!")
+			}
+		}
+	</script>
+
+	<nav class="ui">
+		<ul>
+			<li><a href="twobar.html">TWOBAR</a></li>
+			<li><a href="hover.html">HOVER</a></li>
+			<li><a href="userinfo.html">USERINFO</a></li>
+		</ul>
+	</nav>
+
+	<h1 id="sucess" align="center" class="ui"> Please type in your login information </h1>
+	<h2 class="ui">
+		<form align="center">
+			Username:<br>
+			<input type="string"><br>
+			Email:<br>
+			<input type="string"><br>
+			Password:<br>
+			<input type="password" id="pw"><br>
+			<button onclick="checkpassword();return false;">Login</button> <!-- return false to keep the text to stay onclick -->
+		</form>
+	</h2>
+
+</html>

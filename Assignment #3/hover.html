@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<link rel="stylesheet" type="text/css" href="nav.css">
+	<script>
+		function hovered() {
+			window.alert("I told you not to hover over me!");
+		}
+		function unhovered() {
+			window.alert("This is better.");
+		}
+	</script>
+
+	<nav class="ui">
+		<ul>
+			<li><a href="twobar.html">TWOBAR</a></li>
+			<li><a href="hover.html">HOVER</a></li>
+			<li><a href="userinfo.html">USERINFO</a></li>
+		</ul>
+	</nav>
+
+	<button onmouseover="hovered(this)" onmouseout="setTimeout(unhovered, 1000)" class="block">Don't hover over me</button> <!-- when unhovered another alert comes up -->
+
+	<video controls autoplay loop width="250px" class="video">
+		<source src="wildlife.mp4" type="video/mp4">
+	</video>
+
+</html>

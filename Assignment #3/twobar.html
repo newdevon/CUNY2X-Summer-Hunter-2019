@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<link rel="stylesheet" type="text/css" href="nav.css">
+<script>
+	function changeText1() {
+		document.getElementById("text1").innerHTML="I'm right";
+	}
+
+	function changeText2() {
+		document.getElementById("text1").innerHTML="No, I'm right!";
+	}
+</script>
+
+<nav class="ui">
+	<ul>
+		<li><a href="twobar.html">TWOBAR</a></li>
+		<li><a href="hover.html">HOVER</a></li>
+		<li><a href="userinfo.html">USERINFO</a></li>
+	</ul>
+</nav>
+
+<p id="text1" class="ui" align="center">Earth is flat!</p>
+
+<div align="center">
+	<button onclick="changeText1()" value="OK">Yes!</button>
+	<button onclick="changeText2()" value="OK">Earth is a sphere!</button><br>
+	<img class="globe" src="globe.png">
+</div>
+</html>
+
+<!-- <table align="center" class="ui"> trying to get the text to be on the left
+  <tr>
+    <td>Earth is flat!</td>
+    <td>
+		<div align="center">
+			<button onclick="changeText1()" value="OK">Yes!</button>
+			<button onclick="changeText2()" value="OK">Earth is a sphere!</button><br>
+			<img class="globe" src="globe.png">
+		</div>
+	</td>
+  </tr>
+</table> -->

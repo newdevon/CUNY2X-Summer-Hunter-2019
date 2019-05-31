@@ -1,0 +1,30 @@
+<!doctype>
+<html>
+	<script>
+		function solve() {
+			let x = document.getElementById("radius").value;
+			x = Math.pow(x,3);
+			x = x * (4/3) * Math.PI; 
+			document.getElementById("vol").innerHTML="Volume = "+ x;
+		}
+	</script>
+
+	<style>
+		img {
+			display: block;
+			margin: auto;
+			max-width: 40%; /*for resizing proportionally*/
+    		height:auto; /*for resizing proportionally*/
+		}
+	</style>
+
+	<form align="center">
+		Radius:<br>
+		<input type="number" id="radius">
+		<button onclick="solve();return false;">Solve</button>
+	</form>
+
+	<h1 align="center" id="vol"> Volume = (4/3)πr^3 </h1>
+
+	<img src="volsphe.jpg">
+</html>
