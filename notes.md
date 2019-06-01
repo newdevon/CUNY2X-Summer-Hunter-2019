@@ -1,0 +1,2 @@
+- The html files should contian tags for `head` and `body`
+- Use better names than `checkText1` and `checkText2`
