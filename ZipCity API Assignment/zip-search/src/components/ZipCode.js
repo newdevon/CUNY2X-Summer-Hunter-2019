@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import MapInfo from './MapInfo';
+import './ZipCode.css'
 
 class ZipCode extends Component {
 	constructor() {
@@ -37,13 +38,13 @@ class ZipCode extends Component {
 
 	render() {
 		return (
-			<div>
+			<div align="center">
 				<h1> Search Zip Code </h1>
 				{/* When something is typed in input, value which we set as state 
 				zip changes state zip, which triggers onChange*/}
 				<input type="text" value={this.state.zip} name="zip" onChange={this.handleChange}/>
 				<button onClick={this.fetchZipCodeData}>Search</button>
-				<div>
+				<div class="align">
 					{this.state.data.map(city => {
 						return(
 							<MapInfo data={city}/> //creates a prop named data, pass in objects from city and return component
@@ -56,3 +57,4 @@ class ZipCode extends Component {
 }
 
 export default ZipCode;
+

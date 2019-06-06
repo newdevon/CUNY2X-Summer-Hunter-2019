@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import MapInfo from './MapInfo';
+import './citySearch.css'
 
 class cityCode extends Component {
 	constructor() {
@@ -46,25 +47,21 @@ class cityCode extends Component {
 	}
 
 	render() {
+
+		// let infoarray;
+		// for(let i=0; i<this.state.data.length();i++) {
+		// 	infoarray[i]=this.state.data[i];
+		// }
 		return (
 			<div>
-				<h1> Search City Name </h1>
+				<h1> Search for Zip Codes with City Name </h1>
 				{/* When something is typed in input, value which we set as state 
 				city changes state city, which triggers onChange*/}
+				<p> Enter a City Name </p>
 				<input type="text" value={this.state.city} name="city" onChange={this.handleChange}/>
 				<button onClick={this.fetchcityCodeData}>Search</button>
 				<div>
-					
-					{this.state.data}
-					{/*
-					{this.state.data.map(citi => {
-						return(
-							<MapInfo data={citi}/> //creates a prop named data, pass in objects from city and return component
-						)
-					})}
-					*/}
-
-					<p>Note: The zip codes are listed but are not mapping correctly, thus not spacing out</p>
+					{this.state.data.map(zip => (<p>{zip}</p>))}
 				</div>
 			</div>
 		)
